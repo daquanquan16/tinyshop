@@ -2,6 +2,7 @@
     "name": "daquanquan16/tinyshop",
     "description": "shop plugins php plugins",
     "type": "MIT",
+    "license": "MIT",
     "authors": [
         {
             "name": "daquanquan16",

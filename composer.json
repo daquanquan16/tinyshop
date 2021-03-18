@@ -14,5 +14,10 @@
     },
     "autoload": {
         "psr-4": {"tinyshop\\": "src/tinyshop"}
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "tinyshop\\": "src/tinyshop"
+        }
     }
 }

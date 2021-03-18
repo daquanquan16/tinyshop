@@ -9,6 +9,8 @@ class Test
     public function index()
     {
         return "hello test";
+
+      //  composer dump;
     }
 
 }

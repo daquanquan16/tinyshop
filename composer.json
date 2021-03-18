@@ -1,0 +1,13 @@
+{
+    "name": "tiny/tinyshop",
+    "description": "shop plugins\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Dphp plugins",
+    "type": "MIT",
+    "authors": [
+        {
+            "name": "daquanquan16",
+            "email": "daquanquan16@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

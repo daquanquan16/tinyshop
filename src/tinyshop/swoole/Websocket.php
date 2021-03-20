@@ -21,7 +21,7 @@ class Websocket
         }
         $host = empty($host) ? "0.0.0.0" : $host;
         $post = empty($post) ? 8812 : $post;
-        $this->ws = new swoole_websocket_server($host, $post);
+        $this->ws = new \swoole_websocket_server($host, $post);
         $this->ws->set($option);
         $this->ws->on("open", [$this, 'onOpen']);
         $this->ws->on("message", [$this, 'onMessage']);

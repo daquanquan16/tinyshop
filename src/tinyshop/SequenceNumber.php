@@ -5,7 +5,7 @@ namespace tinyshop;
 
 class SequenceNumber {
 
-    private static $_fmt='YmdHis';
+    private static $_fmt='ymdHis';
     /**
      * 根据显示宽度获取指定的 mapbit
      * @param integer $width 编号显示宽度
@@ -103,5 +103,6 @@ class SequenceNumber {
         return sprintf('%s%s', self::_fmtTS($ts), self::encode($id, $width));
     }
 }
-//$restult=SequenceNumber::get(time().rand(100,999).rand(1,9).rand(10,99),4);
-//print_r($restult);
+$restult=SequenceNumber::get(time().rand(100,999).rand(1,9).rand(10,99),4,time());
+print_r($restult);
+echo PHP_EOL.strlen($restult);

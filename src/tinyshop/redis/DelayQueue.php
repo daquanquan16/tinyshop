@@ -9,12 +9,17 @@ class DelayQueue
     protected $prefix = 'delay_queue:';
     protected $redis = null;
     protected $key = '';
+
     public function __construct($queue, $config = [])
     {
         $this->key = $this->prefix . $queue;
-        $this->redis = new Redis();
-        $this->redis->connect($config['host'], $config['port'], $config['timeout']);
-        $this->redis->auth($config['auth']);
+        $this->redis = Sdk::getInstance()->getRedis();
+    }
+
+    public function setQueue($queue)
+    {
+        $this->key = $this->prefix . $queue;
+        return $this;
     }
 
     public function delTask($value)
@@ -31,7 +36,9 @@ class DelayQueue
     public function addTask($name, $time, $data)
     {
         //添加任务，以时间作为score，对任务队列按时间从小到大排序
-        return $this->redis->zAdd(
+        $data = is_array($data) ? json_encode($data, JSON_UNESCAPED_UNICODE) : $data;
+        return $this->redis->zAdd($this->key, $time, $data);
+        /*return $this->redis->zAdd(
             $this->key,
             $time,
             json_encode([
@@ -39,7 +46,7 @@ class DelayQueue
                 'task_time' => $time,
                 'task_params' => $data,
             ], JSON_UNESCAPED_UNICODE)
-        );
+        );*/
     }
 
     public function run()
@@ -63,3 +70,17 @@ class DelayQueue
     }
 
 }
+
+/*set_time_limit(0);
+
+$dq = new DelayQueue('close_order', [
+    'host' => '127.0.0.1',
+    'port' => 6379,
+    'auth' => '',
+    'timeout' => 60,
+]);
+
+while (true) {
+    $dq->run();
+    usleep(100000);
+}*/

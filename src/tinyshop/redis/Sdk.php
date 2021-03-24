@@ -11,7 +11,7 @@ class Sdk
     private $redis = null;
 
     //初始化化类，防止被实例化
-    private function __construct()
+    public function __construct()
     {
         $this->connect();
     }
@@ -19,9 +19,9 @@ class Sdk
     //防止类重复实例化
     public static function getInstance()
     {
-        if (self::$object instanceof self) {
-            self::$object = new self;
-        }
+        if (empty(self::$object)||self::$object instanceof self) {
+            self::$object = new self();
+       }
         return self::$object;
     }
 
@@ -31,7 +31,9 @@ class Sdk
         if (!empty($this->redis)) {
             return $this->redis;
         }
-        $this->redis = new \Redis(Config::HOST, Config::POST);
+        $this->redis = new \Redis();
+        $this->redis->connect(Config::HOST, Config::POST);
+
         if (!empty(Config::PASSWORD)) {
             $this->redis->auth(Config::PASSWORD);
         }
@@ -53,7 +55,7 @@ class Sdk
     {
     }
 }
-
+/*
 $obj = Sdk::getInstance();
   $redis=$obj  ->getRedis();
-print_r($redis);
+print_r($redis);*/

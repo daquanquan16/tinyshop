@@ -2,3 +2,5 @@
 .idea
 .htaccess
 nginx.htaccess
+vendor/
+.idea/

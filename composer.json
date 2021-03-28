@@ -11,7 +11,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.0",
+        "viest/php-ext-xlswriter-ide-helper": "dev-master"
     },
     "autoload": {
         "psr-4": {

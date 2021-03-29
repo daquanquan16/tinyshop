@@ -1,7 +1,6 @@
 {
     "name": "daquanquan16/tinyshop",
     "description": "shop plugins php plugins",
-    "type": "MIT",
     "license": "MIT",
     "authors": [
         {
@@ -12,7 +11,8 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.0",
-        "viest/php-ext-xlswriter-ide-helper": "dev-master"
+        "viest/php-ext-xlswriter-ide-helper": "dev-master",
+        "phpoffice/phpspreadsheet": "9999999-dev"
     },
     "autoload": {
         "psr-4": {

@@ -6,7 +6,7 @@ namespace tinyshop\excel;
 
 use PhpOffice\PhpSpreadsheet\Reader\IReadFilter;
 
-class SplitExcel implements IReadFilter
+class ChunkReadFilter implements IReadFilter
 {
     private $startRow = 0;
 

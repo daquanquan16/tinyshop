@@ -35,6 +35,8 @@ class SplitSheet
             $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
             echo "使用{$i}: ".memory_get_usage()."B\n".PHP_EOL;
             $spreadsheet->disconnectWorksheets();
+            unset($sheetData);
+            unset($spreadsheet);
             echo "释放{$i}: ".memory_get_usage()."B\n".PHP_EOL;
           //  echo "峰值: ".memory_get_peak_usage()."B\n".PHP_EOL;
 $i++;

@@ -31,6 +31,7 @@ class SplitSheet
             $chunkFilter->setRows($startRow, $chunkSize);
             // Load only the rows that match our filter from $inputFileName to a PhpSpreadsheet Object
             $spreadsheet = $reader->load($inputFileName);
+            $reader->setReadDataOnly(true);
             // Do some processing here
             $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
             echo "使用{$i}: ".memory_get_usage()."B\n".PHP_EOL;
